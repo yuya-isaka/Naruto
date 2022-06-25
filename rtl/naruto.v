@@ -253,131 +253,155 @@ module RISCV(
   wire [4:0] rf_MPORT_addr; // @[Register.scala 8:15]
   wire  rf_MPORT_mask; // @[Register.scala 8:15]
   wire  rf_MPORT_en; // @[Register.scala 8:15]
-  wire [3:0] alu_io_fn; // @[RISCV.scala 287:19]
-  wire [31:0] alu_io_in1; // @[RISCV.scala 287:19]
-  wire [31:0] alu_io_in2; // @[RISCV.scala 287:19]
-  wire [31:0] alu_io_alu_out; // @[RISCV.scala 287:19]
-  wire  alu_io_cmp_out; // @[RISCV.scala 287:19]
-  reg [31:0] id_pc; // @[RISCV.scala 56:22]
-  reg [31:0] id_npc; // @[RISCV.scala 57:23]
-  reg [31:0] id_inst; // @[RISCV.scala 58:24]
-  reg [31:0] ex_pc; // @[RISCV.scala 68:22]
-  reg [31:0] ex_npc; // @[RISCV.scala 69:23]
-  reg [31:0] ex_inst; // @[RISCV.scala 70:24]
-  reg  ex_ctrl_branch; // @[RISCV.scala 71:24]
-  reg  ex_ctrl_jal; // @[RISCV.scala 71:24]
-  reg  ex_ctrl_jalr; // @[RISCV.scala 71:24]
-  reg [1:0] ex_ctrl_sel_alu1; // @[RISCV.scala 71:24]
-  reg [1:0] ex_ctrl_sel_alu2; // @[RISCV.scala 71:24]
-  reg [2:0] ex_ctrl_sel_imm; // @[RISCV.scala 71:24]
-  reg [3:0] ex_ctrl_alu_fn; // @[RISCV.scala 71:24]
-  reg  ex_ctrl_mem; // @[RISCV.scala 71:24]
-  reg [4:0] ex_ctrl_mem_cmd; // @[RISCV.scala 71:24]
-  reg  ex_ctrl_wxd; // @[RISCV.scala 71:24]
-  reg [4:0] ex_reg_raddr_0; // @[RISCV.scala 72:29]
-  reg [4:0] ex_reg_raddr_1; // @[RISCV.scala 72:29]
-  reg [4:0] ex_reg_waddr; // @[RISCV.scala 73:29]
-  reg [31:0] ex_rs_0; // @[RISCV.scala 74:22]
-  reg [31:0] ex_rs_1; // @[RISCV.scala 74:22]
-  reg [31:0] mem_pc; // @[RISCV.scala 85:23]
-  reg [31:0] mem_npc; // @[RISCV.scala 86:24]
-  reg  mem_ctrl_branch; // @[RISCV.scala 87:25]
-  reg  mem_ctrl_jal; // @[RISCV.scala 87:25]
-  reg  mem_ctrl_jalr; // @[RISCV.scala 87:25]
-  reg  mem_ctrl_mem; // @[RISCV.scala 87:25]
-  reg [4:0] mem_ctrl_mem_cmd; // @[RISCV.scala 87:25]
-  reg  mem_ctrl_wxd; // @[RISCV.scala 87:25]
-  reg [4:0] mem_reg_waddr; // @[RISCV.scala 88:30]
-  reg [31:0] mem_rs_1; // @[RISCV.scala 89:23]
-  reg [31:0] mem_imm; // @[RISCV.scala 90:24]
-  reg [31:0] mem_alu_out; // @[RISCV.scala 91:28]
-  reg  mem_alu_cmp_out; // @[RISCV.scala 92:32]
-  reg [31:0] wb_npc; // @[RISCV.scala 100:23]
-  reg  wb_ctrl_jalr; // @[RISCV.scala 101:24]
-  reg  wb_ctrl_mem; // @[RISCV.scala 101:24]
-  reg  wb_ctrl_wxd; // @[RISCV.scala 101:24]
-  reg [4:0] rf_waddr; // @[RISCV.scala 103:29]
-  reg [31:0] wb_alu_out; // @[RISCV.scala 104:27]
-  reg [31:0] wb_dData_readData; // @[RISCV.scala 105:34]
-  reg [31:0] pc; // @[RISCV.scala 125:19]
-  wire [31:0] npc = pc + 32'h4; // @[RISCV.scala 129:13]
+  wire [3:0] alu_io_fn; // @[RISCV.scala 289:19]
+  wire [31:0] alu_io_in1; // @[RISCV.scala 289:19]
+  wire [31:0] alu_io_in2; // @[RISCV.scala 289:19]
+  wire [31:0] alu_io_alu_out; // @[RISCV.scala 289:19]
+  wire  alu_io_cmp_out; // @[RISCV.scala 289:19]
+  reg [31:0] id_pc; // @[RISCV.scala 58:22]
+  reg [31:0] id_npc; // @[RISCV.scala 59:23]
+  reg [31:0] id_inst; // @[RISCV.scala 60:24]
+  reg [31:0] ex_pc; // @[RISCV.scala 70:22]
+  reg [31:0] ex_npc; // @[RISCV.scala 71:23]
+  reg [31:0] ex_inst; // @[RISCV.scala 72:24]
+  reg  ex_ctrl_branch; // @[RISCV.scala 73:24]
+  reg  ex_ctrl_jal; // @[RISCV.scala 73:24]
+  reg  ex_ctrl_jalr; // @[RISCV.scala 73:24]
+  reg [1:0] ex_ctrl_sel_alu1; // @[RISCV.scala 73:24]
+  reg [1:0] ex_ctrl_sel_alu2; // @[RISCV.scala 73:24]
+  reg [2:0] ex_ctrl_sel_imm; // @[RISCV.scala 73:24]
+  reg [3:0] ex_ctrl_alu_fn; // @[RISCV.scala 73:24]
+  reg  ex_ctrl_mem; // @[RISCV.scala 73:24]
+  reg [4:0] ex_ctrl_mem_cmd; // @[RISCV.scala 73:24]
+  reg  ex_ctrl_wxd; // @[RISCV.scala 73:24]
+  reg [4:0] ex_reg_raddr_0; // @[RISCV.scala 74:29]
+  reg [4:0] ex_reg_raddr_1; // @[RISCV.scala 74:29]
+  reg [4:0] ex_reg_waddr; // @[RISCV.scala 75:29]
+  reg [31:0] ex_rs_0; // @[RISCV.scala 76:22]
+  reg [31:0] ex_rs_1; // @[RISCV.scala 76:22]
+  reg [31:0] mem_pc; // @[RISCV.scala 87:23]
+  reg [31:0] mem_npc; // @[RISCV.scala 88:24]
+  reg  mem_ctrl_branch; // @[RISCV.scala 89:25]
+  reg  mem_ctrl_jal; // @[RISCV.scala 89:25]
+  reg  mem_ctrl_jalr; // @[RISCV.scala 89:25]
+  reg  mem_ctrl_mem; // @[RISCV.scala 89:25]
+  reg [4:0] mem_ctrl_mem_cmd; // @[RISCV.scala 89:25]
+  reg  mem_ctrl_wxd; // @[RISCV.scala 89:25]
+  reg [4:0] mem_reg_waddr; // @[RISCV.scala 90:30]
+  reg [31:0] mem_rs_1; // @[RISCV.scala 91:23]
+  reg [31:0] mem_imm; // @[RISCV.scala 92:24]
+  reg [31:0] mem_alu_out; // @[RISCV.scala 93:28]
+  reg  mem_alu_cmp_out; // @[RISCV.scala 94:32]
+  reg [31:0] wb_npc; // @[RISCV.scala 102:23]
+  reg  wb_ctrl_jalr; // @[RISCV.scala 103:24]
+  reg  wb_ctrl_mem; // @[RISCV.scala 103:24]
+  reg  wb_ctrl_wxd; // @[RISCV.scala 103:24]
+  reg [4:0] rf_waddr; // @[RISCV.scala 105:29]
+  reg [31:0] wb_alu_out; // @[RISCV.scala 106:27]
+  reg [31:0] wb_dData_readData; // @[RISCV.scala 107:34]
+  reg [31:0] pc; // @[RISCV.scala 127:19]
+  wire [31:0] npc = pc + 32'h4; // @[RISCV.scala 131:13]
   wire [4:0] id_inst_arange_rs1 = id_inst[19:15]; // @[Decode.scala 19:20]
   wire [4:0] id_inst_arange_rs2 = id_inst[24:20]; // @[Decode.scala 20:20]
-  wire  _load_stall_T_2 = id_inst_arange_rs1 == ex_reg_waddr | id_inst_arange_rs2 == ex_reg_waddr; // @[RISCV.scala 190:48]
-  wire  load_stall = _load_stall_T_2 & ex_ctrl_mem & ex_ctrl_mem_cmd == 5'h0; // @[RISCV.scala 191:28]
-  wire  _T = ~load_stall; // @[RISCV.scala 150:8]
-  wire  _jump_flush_T_5 = mem_ctrl_branch & mem_alu_cmp_out | mem_ctrl_jal; // @[RISCV.scala 340:63]
-  wire  jump_flush = mem_ctrl_branch & mem_alu_cmp_out | mem_ctrl_jal | mem_ctrl_jalr; // @[RISCV.scala 340:87]
-  wire  _T_1 = ~jump_flush; // @[RISCV.scala 150:23]
-  wire  _T_2 = ~load_stall & ~jump_flush; // @[RISCV.scala 150:20]
+  wire  _load_stall_T_2 = id_inst_arange_rs1 == ex_reg_waddr | id_inst_arange_rs2 == ex_reg_waddr; // @[RISCV.scala 192:48]
+  wire  load_stall = _load_stall_T_2 & ex_ctrl_mem & ex_ctrl_mem_cmd == 5'h0; // @[RISCV.scala 193:28]
+  wire  _T = ~load_stall; // @[RISCV.scala 152:8]
+  wire  _jump_flush_T_5 = mem_ctrl_branch & mem_alu_cmp_out | mem_ctrl_jal; // @[RISCV.scala 342:63]
+  wire  jump_flush = mem_ctrl_branch & mem_alu_cmp_out | mem_ctrl_jal | mem_ctrl_jalr; // @[RISCV.scala 342:87]
+  wire  _T_1 = ~jump_flush; // @[RISCV.scala 152:23]
+  wire  _T_2 = ~load_stall & ~jump_flush; // @[RISCV.scala 152:20]
   wire [4:0] id_inst_arange_rd = id_inst[11:7]; // @[Decode.scala 18:19]
-  wire  _id_ctrl_decoder_ctrl_signals_T_3 = 32'h67 == id_inst ? 1'h0 : 32'h63 == id_inst; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_5 = 32'h6f == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_3; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_7 = 32'h37 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_5; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_9 = 32'h17 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_7; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_11 = 32'h13 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_9; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_13 = 32'h3 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_11; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_14 = 32'h23 == id_inst; // @[Mux.scala 81:61]
-  wire  id_ctrl_decoder_0 = 32'h23 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_13; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_22 = 32'h37 == id_inst ? 1'h0 : 32'h6f == id_inst; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_24 = 32'h17 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_22; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_26 = 32'h13 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_24; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_28 = 32'h3 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_26; // @[Mux.scala 81:58]
-  wire  id_ctrl_decoder_1 = 32'h23 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_28; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_35 = 32'h6f == id_inst ? 1'h0 : 32'h67 == id_inst; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_37 = 32'h37 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_35; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_39 = 32'h17 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_37; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_41 = 32'h13 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_39; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_43 = 32'h3 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_41; // @[Mux.scala 81:58]
-  wire  id_ctrl_decoder_2 = 32'h23 == id_inst ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_43; // @[Mux.scala 81:58]
-  wire  _id_ctrl_decoder_ctrl_signals_T_48 = 32'h67 == id_inst | 32'h63 == id_inst; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_50 = 32'h6f == id_inst ? 2'h2 : {{1'd0}, _id_ctrl_decoder_ctrl_signals_T_48
-    }; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_52 = 32'h37 == id_inst ? 2'h0 : _id_ctrl_decoder_ctrl_signals_T_50; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_54 = 32'h17 == id_inst ? 2'h2 : _id_ctrl_decoder_ctrl_signals_T_52; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_56 = 32'h13 == id_inst ? 2'h1 : _id_ctrl_decoder_ctrl_signals_T_54; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_61 = 32'h63 == id_inst ? 2'h2 : 2'h0; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_63 = 32'h67 == id_inst ? 2'h3 : _id_ctrl_decoder_ctrl_signals_T_61; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_65 = 32'h6f == id_inst ? 2'h1 : _id_ctrl_decoder_ctrl_signals_T_63; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_67 = 32'h37 == id_inst ? 2'h3 : _id_ctrl_decoder_ctrl_signals_T_65; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_69 = 32'h17 == id_inst ? 2'h3 : _id_ctrl_decoder_ctrl_signals_T_67; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_71 = 32'h13 == id_inst ? 2'h3 : _id_ctrl_decoder_ctrl_signals_T_69; // @[Mux.scala 81:58]
-  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_78 = 32'h67 == id_inst ? 3'h4 : {{2'd0}, 32'h63 == id_inst}; // @[Mux.scala 81:58]
-  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_80 = 32'h6f == id_inst ? 3'h3 : _id_ctrl_decoder_ctrl_signals_T_78; // @[Mux.scala 81:58]
-  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_82 = 32'h37 == id_inst ? 3'h2 : _id_ctrl_decoder_ctrl_signals_T_80; // @[Mux.scala 81:58]
-  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_84 = 32'h17 == id_inst ? 3'h2 : _id_ctrl_decoder_ctrl_signals_T_82; // @[Mux.scala 81:58]
-  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_86 = 32'h13 == id_inst ? 3'h4 : _id_ctrl_decoder_ctrl_signals_T_84; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_93 = 32'h67 == id_inst ? 2'h0 : _id_ctrl_decoder_ctrl_signals_T_61; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_95 = 32'h6f == id_inst ? 2'h0 : _id_ctrl_decoder_ctrl_signals_T_93; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_97 = 32'h37 == id_inst ? 2'h0 : _id_ctrl_decoder_ctrl_signals_T_95; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_99 = 32'h17 == id_inst ? 2'h0 : _id_ctrl_decoder_ctrl_signals_T_97; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_101 = 32'h13 == id_inst ? 2'h0 : _id_ctrl_decoder_ctrl_signals_T_99; // @[Mux.scala 81:58]
-  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_103 = 32'h3 == id_inst ? 2'h0 : _id_ctrl_decoder_ctrl_signals_T_101; // @[Mux.scala 81:58]
-  wire [1:0] id_ctrl_decoder_6 = 32'h23 == id_inst ? 2'h0 : _id_ctrl_decoder_ctrl_signals_T_103; // @[Mux.scala 81:58]
-  wire  id_ctrl_decoder_7 = 32'h23 == id_inst | 32'h3 == id_inst; // @[Mux.scala 81:58]
-  wire  id_ctrl_decoder_10 = 32'h23 == id_inst ? 1'h0 : 32'h3 == id_inst | (32'h13 == id_inst | (32'h17 == id_inst | (32'h37
-     == id_inst | (32'h6f == id_inst | 32'h67 == id_inst)))); // @[Mux.scala 81:58]
-  wire  _GEN_9 = _T_2 ? id_ctrl_decoder_10 : 1'h1; // @[RISCV.scala 210:36 214:13 221:13]
-  wire [4:0] id_ctrl_mem_cmd = {{4'd0}, _id_ctrl_decoder_ctrl_signals_T_14}; // @[RISCV.scala 170:9 RetentionBundle.scala 90:51]
-  wire  _GEN_12 = _T_2 & id_ctrl_decoder_7; // @[RISCV.scala 210:36 214:13 221:13]
-  wire [3:0] id_ctrl_alu_fn = {{2'd0}, id_ctrl_decoder_6}; // @[RISCV.scala 170:9 RetentionBundle.scala 90:51]
-  wire  _GEN_17 = _T_2 & id_ctrl_decoder_2; // @[RISCV.scala 210:36 214:13 221:13]
-  wire  _GEN_18 = _T_2 & id_ctrl_decoder_1; // @[RISCV.scala 210:36 214:13 221:13]
-  wire  _GEN_19 = _T_2 & id_ctrl_decoder_0; // @[RISCV.scala 210:36 214:13 221:13]
-  wire  _ex_rs_bypassed_T = ex_reg_raddr_0 != 5'h0; // @[RISCV.scala 238:29]
-  wire  _ex_rs_bypassed_T_2 = _ex_rs_bypassed_T & ex_reg_raddr_0 == mem_reg_waddr; // @[RISCV.scala 239:13]
-  wire  _ex_rs_bypassed_T_5 = _ex_rs_bypassed_T_2 & mem_ctrl_wxd; // @[RISCV.scala 240:13]
-  wire  _ex_rs_bypassed_T_8 = _ex_rs_bypassed_T & ex_reg_raddr_0 == rf_waddr; // @[RISCV.scala 245:13]
-  wire  _ex_rs_bypassed_T_11 = _ex_rs_bypassed_T_8 & wb_ctrl_wxd; // @[RISCV.scala 246:13]
-  wire  _ex_rs_bypassed_T_14 = _ex_rs_bypassed_T_11 & wb_ctrl_mem; // @[RISCV.scala 247:13]
+  wire [31:0] _id_ctrl_decoder_ctrl_signals_T = id_inst & 32'h707f; // @[RetentionBundle.scala 170:15]
+  wire  id_ctrl_decoder_0 = 32'h63 == _id_ctrl_decoder_ctrl_signals_T; // @[RetentionBundle.scala 170:15]
+  wire  _id_ctrl_decoder_ctrl_signals_T_3 = 32'h67 == _id_ctrl_decoder_ctrl_signals_T; // @[RetentionBundle.scala 170:15]
+  wire [31:0] _id_ctrl_decoder_ctrl_signals_T_4 = id_inst & 32'h7f; // @[RetentionBundle.scala 170:15]
+  wire  _id_ctrl_decoder_ctrl_signals_T_5 = 32'h6f == _id_ctrl_decoder_ctrl_signals_T_4; // @[RetentionBundle.scala 170:15]
+  wire  _id_ctrl_decoder_ctrl_signals_T_7 = 32'h37 == _id_ctrl_decoder_ctrl_signals_T_4; // @[RetentionBundle.scala 170:15]
+  wire  _id_ctrl_decoder_ctrl_signals_T_9 = 32'h17 == _id_ctrl_decoder_ctrl_signals_T_4; // @[RetentionBundle.scala 170:15]
+  wire  _id_ctrl_decoder_ctrl_signals_T_11 = 32'h13 == _id_ctrl_decoder_ctrl_signals_T; // @[RetentionBundle.scala 170:15]
+  wire  _id_ctrl_decoder_ctrl_signals_T_13 = 32'h3 == _id_ctrl_decoder_ctrl_signals_T; // @[RetentionBundle.scala 170:15]
+  wire  _id_ctrl_decoder_ctrl_signals_T_15 = 32'h23 == _id_ctrl_decoder_ctrl_signals_T; // @[RetentionBundle.scala 170:15]
+  wire  _id_ctrl_decoder_ctrl_signals_T_45 = _id_ctrl_decoder_ctrl_signals_T_3 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_5; // @[Mux.scala 101:16]
+  wire  id_ctrl_decoder_1 = id_ctrl_decoder_0 ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_45; // @[Mux.scala 101:16]
+  wire  id_ctrl_decoder_2 = id_ctrl_decoder_0 ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_3; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_87 = _id_ctrl_decoder_ctrl_signals_T_11 | (_id_ctrl_decoder_ctrl_signals_T_13 |
+    _id_ctrl_decoder_ctrl_signals_T_15); // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_88 = _id_ctrl_decoder_ctrl_signals_T_9 ? 2'h2 : {{1'd0},
+    _id_ctrl_decoder_ctrl_signals_T_87}; // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_89 = _id_ctrl_decoder_ctrl_signals_T_7 ? 2'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_88; // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_90 = _id_ctrl_decoder_ctrl_signals_T_5 ? 2'h2 :
+    _id_ctrl_decoder_ctrl_signals_T_89; // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_108 = _id_ctrl_decoder_ctrl_signals_T_15 ? 2'h3 : 2'h0; // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_109 = _id_ctrl_decoder_ctrl_signals_T_13 ? 2'h3 :
+    _id_ctrl_decoder_ctrl_signals_T_108; // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_110 = _id_ctrl_decoder_ctrl_signals_T_11 ? 2'h3 :
+    _id_ctrl_decoder_ctrl_signals_T_109; // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_111 = _id_ctrl_decoder_ctrl_signals_T_9 ? 2'h3 :
+    _id_ctrl_decoder_ctrl_signals_T_110; // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_112 = _id_ctrl_decoder_ctrl_signals_T_7 ? 2'h3 :
+    _id_ctrl_decoder_ctrl_signals_T_111; // @[Mux.scala 101:16]
+  wire [1:0] _id_ctrl_decoder_ctrl_signals_T_113 = _id_ctrl_decoder_ctrl_signals_T_5 ? 2'h1 :
+    _id_ctrl_decoder_ctrl_signals_T_112; // @[Mux.scala 101:16]
+  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_132 = _id_ctrl_decoder_ctrl_signals_T_13 ? 3'h4 : 3'h0; // @[Mux.scala 101:16]
+  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_133 = _id_ctrl_decoder_ctrl_signals_T_11 ? 3'h4 :
+    _id_ctrl_decoder_ctrl_signals_T_132; // @[Mux.scala 101:16]
+  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_134 = _id_ctrl_decoder_ctrl_signals_T_9 ? 3'h2 :
+    _id_ctrl_decoder_ctrl_signals_T_133; // @[Mux.scala 101:16]
+  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_135 = _id_ctrl_decoder_ctrl_signals_T_7 ? 3'h2 :
+    _id_ctrl_decoder_ctrl_signals_T_134; // @[Mux.scala 101:16]
+  wire [2:0] _id_ctrl_decoder_ctrl_signals_T_136 = _id_ctrl_decoder_ctrl_signals_T_5 ? 3'h3 :
+    _id_ctrl_decoder_ctrl_signals_T_135; // @[Mux.scala 101:16]
+  wire [1:0] id_ctrl_decoder_6 = id_ctrl_decoder_0 ? 2'h2 : 2'h0; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_179 = _id_ctrl_decoder_ctrl_signals_T_11 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_13 | _id_ctrl_decoder_ctrl_signals_T_15; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_180 = _id_ctrl_decoder_ctrl_signals_T_9 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_179; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_181 = _id_ctrl_decoder_ctrl_signals_T_7 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_180; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_182 = _id_ctrl_decoder_ctrl_signals_T_5 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_181; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_183 = _id_ctrl_decoder_ctrl_signals_T_3 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_182; // @[Mux.scala 101:16]
+  wire  id_ctrl_decoder_7 = id_ctrl_decoder_0 ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_183; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_201 = _id_ctrl_decoder_ctrl_signals_T_13 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_15; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_202 = _id_ctrl_decoder_ctrl_signals_T_11 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_201; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_203 = _id_ctrl_decoder_ctrl_signals_T_9 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_202; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_204 = _id_ctrl_decoder_ctrl_signals_T_7 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_203; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_205 = _id_ctrl_decoder_ctrl_signals_T_5 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_204; // @[Mux.scala 101:16]
+  wire  _id_ctrl_decoder_ctrl_signals_T_206 = _id_ctrl_decoder_ctrl_signals_T_3 ? 1'h0 :
+    _id_ctrl_decoder_ctrl_signals_T_205; // @[Mux.scala 101:16]
+  wire  id_ctrl_decoder_8 = id_ctrl_decoder_0 ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_206; // @[Mux.scala 101:16]
+  wire  id_ctrl_decoder_10 = id_ctrl_decoder_0 ? 1'h0 : _id_ctrl_decoder_ctrl_signals_T_3 | (
+    _id_ctrl_decoder_ctrl_signals_T_5 | (_id_ctrl_decoder_ctrl_signals_T_7 | (_id_ctrl_decoder_ctrl_signals_T_9 | (
+    _id_ctrl_decoder_ctrl_signals_T_11 | _id_ctrl_decoder_ctrl_signals_T_13)))); // @[Mux.scala 101:16]
+  wire  _GEN_9 = _T_2 ? id_ctrl_decoder_10 : 1'h1; // @[RISCV.scala 212:36 216:13 223:13]
+  wire [4:0] id_ctrl_mem_cmd = {{4'd0}, id_ctrl_decoder_8}; // @[RISCV.scala 172:9 RetentionBundle.scala 90:56]
+  wire  _GEN_12 = _T_2 & id_ctrl_decoder_7; // @[RISCV.scala 212:36 216:13 223:13]
+  wire [3:0] id_ctrl_alu_fn = {{2'd0}, id_ctrl_decoder_6}; // @[RISCV.scala 172:9 RetentionBundle.scala 90:56]
+  wire  _GEN_17 = _T_2 & id_ctrl_decoder_2; // @[RISCV.scala 212:36 216:13 223:13]
+  wire  _GEN_18 = _T_2 & id_ctrl_decoder_1; // @[RISCV.scala 212:36 216:13 223:13]
+  wire  _GEN_19 = _T_2 & id_ctrl_decoder_0; // @[RISCV.scala 212:36 216:13 223:13]
+  wire  _ex_rs_bypassed_T = ex_reg_raddr_0 != 5'h0; // @[RISCV.scala 240:29]
+  wire  _ex_rs_bypassed_T_2 = _ex_rs_bypassed_T & ex_reg_raddr_0 == mem_reg_waddr; // @[RISCV.scala 241:13]
+  wire  _ex_rs_bypassed_T_5 = _ex_rs_bypassed_T_2 & mem_ctrl_wxd; // @[RISCV.scala 242:13]
+  wire  _ex_rs_bypassed_T_8 = _ex_rs_bypassed_T & ex_reg_raddr_0 == rf_waddr; // @[RISCV.scala 247:13]
+  wire  _ex_rs_bypassed_T_11 = _ex_rs_bypassed_T_8 & wb_ctrl_wxd; // @[RISCV.scala 248:13]
+  wire  _ex_rs_bypassed_T_14 = _ex_rs_bypassed_T_11 & wb_ctrl_mem; // @[RISCV.scala 249:13]
   wire [31:0] _ex_rs_bypassed_T_15 = _ex_rs_bypassed_T_14 ? io_dData_readData : ex_rs_0; // @[Mux.scala 101:16]
   wire [31:0] ex_rs_bypassed_0 = _ex_rs_bypassed_T_5 ? mem_alu_out : _ex_rs_bypassed_T_15; // @[Mux.scala 101:16]
-  wire  _ex_rs_bypassed_T_16 = ex_reg_raddr_1 != 5'h0; // @[RISCV.scala 238:29]
-  wire  _ex_rs_bypassed_T_18 = _ex_rs_bypassed_T_16 & ex_reg_raddr_1 == mem_reg_waddr; // @[RISCV.scala 239:13]
-  wire  _ex_rs_bypassed_T_21 = _ex_rs_bypassed_T_18 & mem_ctrl_wxd; // @[RISCV.scala 240:13]
-  wire  _ex_rs_bypassed_T_24 = _ex_rs_bypassed_T_16 & ex_reg_raddr_1 == rf_waddr; // @[RISCV.scala 245:13]
-  wire  _ex_rs_bypassed_T_27 = _ex_rs_bypassed_T_24 & wb_ctrl_wxd; // @[RISCV.scala 246:13]
-  wire  _ex_rs_bypassed_T_30 = _ex_rs_bypassed_T_27 & wb_ctrl_mem; // @[RISCV.scala 247:13]
+  wire  _ex_rs_bypassed_T_16 = ex_reg_raddr_1 != 5'h0; // @[RISCV.scala 240:29]
+  wire  _ex_rs_bypassed_T_18 = _ex_rs_bypassed_T_16 & ex_reg_raddr_1 == mem_reg_waddr; // @[RISCV.scala 241:13]
+  wire  _ex_rs_bypassed_T_21 = _ex_rs_bypassed_T_18 & mem_ctrl_wxd; // @[RISCV.scala 242:13]
+  wire  _ex_rs_bypassed_T_24 = _ex_rs_bypassed_T_16 & ex_reg_raddr_1 == rf_waddr; // @[RISCV.scala 247:13]
+  wire  _ex_rs_bypassed_T_27 = _ex_rs_bypassed_T_24 & wb_ctrl_wxd; // @[RISCV.scala 248:13]
+  wire  _ex_rs_bypassed_T_30 = _ex_rs_bypassed_T_27 & wb_ctrl_mem; // @[RISCV.scala 249:13]
   wire [31:0] _ex_rs_bypassed_T_31 = _ex_rs_bypassed_T_30 ? io_dData_readData : ex_rs_1; // @[Mux.scala 101:16]
   wire [31:0] ex_rs_bypassed_1 = _ex_rs_bypassed_T_21 ? mem_alu_out : _ex_rs_bypassed_T_31; // @[Mux.scala 101:16]
   wire  _ex_imm_sign_T = ex_ctrl_sel_imm == 3'h5; // @[ImmGenerate.scala 20:24]
@@ -410,19 +434,19 @@ module RISCV(
     ex_imm_b0}; // @[ImmGenerate.scala 48:53]
   wire [31:0] _ex_op1_T_1 = 2'h1 == ex_ctrl_sel_alu1 ? ex_rs_bypassed_0 : 32'h0; // @[Mux.scala 81:58]
   wire [31:0] _ex_op2_T = {ex_imm_hi_hi_hi,ex_imm_hi_hi_lo,ex_imm_hi_lo_hi,ex_imm_hi_lo_lo,ex_imm_b10_5,ex_imm_b4_1,
-    ex_imm_b0}; // @[RISCV.scala 279:25]
+    ex_imm_b0}; // @[RISCV.scala 281:25]
   wire [31:0] _ex_op2_T_2 = 2'h2 == ex_ctrl_sel_alu2 ? ex_rs_bypassed_1 : 32'h0; // @[Mux.scala 81:58]
   wire [31:0] _ex_op2_T_4 = 2'h3 == ex_ctrl_sel_alu2 ? _ex_op2_T : _ex_op2_T_2; // @[Mux.scala 81:58]
-  wire  _GEN_27 = _T_1 ? ex_ctrl_wxd : 1'h1; // @[RISCV.scala 306:21 309:14 318:14]
-  wire  _GEN_30 = _T_1 & ex_ctrl_mem; // @[RISCV.scala 306:21 309:14 318:14]
-  wire  _GEN_35 = _T_1 & ex_ctrl_jalr; // @[RISCV.scala 306:21 309:14 318:14]
-  wire  _GEN_36 = _T_1 & ex_ctrl_jal; // @[RISCV.scala 306:21 309:14 318:14]
-  wire  _GEN_37 = _T_1 & ex_ctrl_branch; // @[RISCV.scala 306:21 309:14 318:14]
-  wire  _GEN_43 = _T_1 & alu_io_cmp_out; // @[RISCV.scala 306:21 314:21 323:21]
+  wire  _GEN_27 = _T_1 ? ex_ctrl_wxd : 1'h1; // @[RISCV.scala 308:21 311:14 320:14]
+  wire  _GEN_30 = _T_1 & ex_ctrl_mem; // @[RISCV.scala 308:21 311:14 320:14]
+  wire  _GEN_35 = _T_1 & ex_ctrl_jalr; // @[RISCV.scala 308:21 311:14 320:14]
+  wire  _GEN_36 = _T_1 & ex_ctrl_jal; // @[RISCV.scala 308:21 311:14 320:14]
+  wire  _GEN_37 = _T_1 & ex_ctrl_branch; // @[RISCV.scala 308:21 311:14 320:14]
+  wire  _GEN_43 = _T_1 & alu_io_cmp_out; // @[RISCV.scala 308:21 316:21 325:21]
   wire [31:0] _rf_wdata_T_4 = wb_ctrl_mem ? wb_dData_readData : wb_alu_out; // @[Mux.scala 101:16]
   wire  _T_7 = rf_waddr != 5'h0; // @[Register.scala 17:15]
-  wire [31:0] _pc_T_8 = mem_pc + mem_imm; // @[RISCV.scala 395:89]
-  ALU alu ( // @[RISCV.scala 287:19]
+  wire [31:0] _pc_T_8 = mem_pc + mem_imm; // @[RISCV.scala 402:89]
+  ALU alu ( // @[RISCV.scala 289:19]
     .io_fn(alu_io_fn),
     .io_in1(alu_io_in1),
     .io_in2(alu_io_in2),
@@ -535,228 +559,228 @@ module RISCV(
   assign rf_MPORT_addr = rf_waddr;
   assign rf_MPORT_mask = 1'h1;
   assign rf_MPORT_en = wb_ctrl_wxd & _T_7;
-  assign io_iData_addr = pc; // @[RISCV.scala 135:17]
-  assign io_dData_addr = mem_alu_out; // @[RISCV.scala 329:17]
-  assign io_dData_writeData = mem_rs_1; // @[RISCV.scala 335:22]
-  assign io_dData_writeEnable = mem_ctrl_mem_cmd == 5'h1; // @[RISCV.scala 331:44]
-  assign alu_io_fn = ex_ctrl_alu_fn; // @[RISCV.scala 288:13]
+  assign io_iData_addr = pc; // @[RISCV.scala 137:17]
+  assign io_dData_addr = mem_alu_out; // @[RISCV.scala 331:17]
+  assign io_dData_writeData = mem_rs_1; // @[RISCV.scala 337:22]
+  assign io_dData_writeEnable = mem_ctrl_mem_cmd == 5'h1; // @[RISCV.scala 333:44]
+  assign alu_io_fn = ex_ctrl_alu_fn; // @[RISCV.scala 290:13]
   assign alu_io_in1 = 2'h2 == ex_ctrl_sel_alu1 ? ex_pc : _ex_op1_T_1; // @[Mux.scala 81:58]
   assign alu_io_in2 = 2'h1 == ex_ctrl_sel_alu2 ? 32'h4 : _ex_op2_T_4; // @[Mux.scala 81:58]
   always @(posedge clock) begin
     if (rf_MPORT_en & rf_MPORT_mask) begin
       rf[rf_MPORT_addr] <= rf_MPORT_data; // @[Register.scala 8:15]
     end
-    if (reset) begin // @[RISCV.scala 56:22]
-      id_pc <= 32'h80000000; // @[RISCV.scala 56:22]
-    end else if (~load_stall & ~jump_flush) begin // @[RISCV.scala 150:36]
-      id_pc <= pc; // @[RISCV.scala 151:11]
-    end else if (jump_flush) begin // @[RISCV.scala 154:26]
-      id_pc <= 32'h80000000; // @[RISCV.scala 155:11]
+    if (reset) begin // @[RISCV.scala 58:22]
+      id_pc <= 32'h80000000; // @[RISCV.scala 58:22]
+    end else if (~load_stall & ~jump_flush) begin // @[RISCV.scala 152:36]
+      id_pc <= pc; // @[RISCV.scala 153:11]
+    end else if (jump_flush) begin // @[RISCV.scala 156:26]
+      id_pc <= 32'h80000000; // @[RISCV.scala 157:11]
     end
-    if (reset) begin // @[RISCV.scala 57:23]
-      id_npc <= 32'h80000004; // @[RISCV.scala 57:23]
-    end else if (~load_stall & ~jump_flush) begin // @[RISCV.scala 150:36]
-      id_npc <= npc; // @[RISCV.scala 152:12]
-    end else if (jump_flush) begin // @[RISCV.scala 154:26]
-      id_npc <= 32'h80000004; // @[RISCV.scala 156:12]
+    if (reset) begin // @[RISCV.scala 59:23]
+      id_npc <= 32'h80000004; // @[RISCV.scala 59:23]
+    end else if (~load_stall & ~jump_flush) begin // @[RISCV.scala 152:36]
+      id_npc <= npc; // @[RISCV.scala 154:12]
+    end else if (jump_flush) begin // @[RISCV.scala 156:26]
+      id_npc <= 32'h80000004; // @[RISCV.scala 158:12]
     end
-    if (reset) begin // @[RISCV.scala 58:24]
-      id_inst <= 32'h13; // @[RISCV.scala 58:24]
-    end else if (~load_stall & ~jump_flush) begin // @[RISCV.scala 150:36]
-      id_inst <= io_iData_inst; // @[RISCV.scala 153:13]
-    end else if (jump_flush) begin // @[RISCV.scala 154:26]
-      id_inst <= 32'h13; // @[RISCV.scala 157:13]
+    if (reset) begin // @[RISCV.scala 60:24]
+      id_inst <= 32'h13; // @[RISCV.scala 60:24]
+    end else if (~load_stall & ~jump_flush) begin // @[RISCV.scala 152:36]
+      id_inst <= io_iData_inst; // @[RISCV.scala 155:13]
+    end else if (jump_flush) begin // @[RISCV.scala 156:26]
+      id_inst <= 32'h13; // @[RISCV.scala 159:13]
     end
-    if (reset) begin // @[RISCV.scala 68:22]
-      ex_pc <= 32'h80000000; // @[RISCV.scala 68:22]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      ex_pc <= id_pc; // @[RISCV.scala 211:11]
+    if (reset) begin // @[RISCV.scala 70:22]
+      ex_pc <= 32'h80000000; // @[RISCV.scala 70:22]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      ex_pc <= id_pc; // @[RISCV.scala 213:11]
     end else begin
-      ex_pc <= 32'h80000000; // @[RISCV.scala 219:11]
+      ex_pc <= 32'h80000000; // @[RISCV.scala 221:11]
     end
-    if (reset) begin // @[RISCV.scala 69:23]
-      ex_npc <= 32'h80000004; // @[RISCV.scala 69:23]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      ex_npc <= id_npc; // @[RISCV.scala 212:12]
+    if (reset) begin // @[RISCV.scala 71:23]
+      ex_npc <= 32'h80000004; // @[RISCV.scala 71:23]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      ex_npc <= id_npc; // @[RISCV.scala 214:12]
     end else begin
-      ex_npc <= 32'h80000004; // @[RISCV.scala 220:12]
+      ex_npc <= 32'h80000004; // @[RISCV.scala 222:12]
     end
-    if (reset) begin // @[RISCV.scala 70:24]
-      ex_inst <= 32'h13; // @[RISCV.scala 70:24]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      ex_inst <= id_inst; // @[RISCV.scala 213:13]
+    if (reset) begin // @[RISCV.scala 72:24]
+      ex_inst <= 32'h13; // @[RISCV.scala 72:24]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      ex_inst <= id_inst; // @[RISCV.scala 215:13]
     end else begin
-      ex_inst <= 32'h13; // @[RISCV.scala 222:13]
+      ex_inst <= 32'h13; // @[RISCV.scala 224:13]
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_branch <= 1'h0; // @[RISCV.scala 71:24]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_branch <= 1'h0; // @[RISCV.scala 73:24]
     end else begin
       ex_ctrl_branch <= _GEN_19;
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_jal <= 1'h0; // @[RISCV.scala 71:24]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_jal <= 1'h0; // @[RISCV.scala 73:24]
     end else begin
       ex_ctrl_jal <= _GEN_18;
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_jalr <= 1'h0; // @[RISCV.scala 71:24]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_jalr <= 1'h0; // @[RISCV.scala 73:24]
     end else begin
       ex_ctrl_jalr <= _GEN_17;
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_sel_alu1 <= 2'h1; // @[RISCV.scala 71:24]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      if (32'h23 == id_inst) begin // @[Mux.scala 81:58]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_sel_alu1 <= 2'h1; // @[RISCV.scala 73:24]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      if (id_ctrl_decoder_0) begin // @[Mux.scala 101:16]
         ex_ctrl_sel_alu1 <= 2'h1;
-      end else if (32'h3 == id_inst) begin // @[Mux.scala 81:58]
+      end else if (_id_ctrl_decoder_ctrl_signals_T_3) begin // @[Mux.scala 101:16]
         ex_ctrl_sel_alu1 <= 2'h1;
       end else begin
-        ex_ctrl_sel_alu1 <= _id_ctrl_decoder_ctrl_signals_T_56;
+        ex_ctrl_sel_alu1 <= _id_ctrl_decoder_ctrl_signals_T_90;
       end
     end else begin
-      ex_ctrl_sel_alu1 <= 2'h1; // @[RISCV.scala 221:13]
+      ex_ctrl_sel_alu1 <= 2'h1; // @[RISCV.scala 223:13]
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_sel_alu2 <= 2'h3; // @[RISCV.scala 71:24]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      if (32'h23 == id_inst) begin // @[Mux.scala 81:58]
-        ex_ctrl_sel_alu2 <= 2'h3;
-      end else if (32'h3 == id_inst) begin // @[Mux.scala 81:58]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_sel_alu2 <= 2'h3; // @[RISCV.scala 73:24]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      if (id_ctrl_decoder_0) begin // @[Mux.scala 101:16]
+        ex_ctrl_sel_alu2 <= 2'h2;
+      end else if (_id_ctrl_decoder_ctrl_signals_T_3) begin // @[Mux.scala 101:16]
         ex_ctrl_sel_alu2 <= 2'h3;
       end else begin
-        ex_ctrl_sel_alu2 <= _id_ctrl_decoder_ctrl_signals_T_71;
+        ex_ctrl_sel_alu2 <= _id_ctrl_decoder_ctrl_signals_T_113;
       end
     end else begin
-      ex_ctrl_sel_alu2 <= 2'h3; // @[RISCV.scala 221:13]
+      ex_ctrl_sel_alu2 <= 2'h3; // @[RISCV.scala 223:13]
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_sel_imm <= 3'h4; // @[RISCV.scala 71:24]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      if (32'h23 == id_inst) begin // @[Mux.scala 81:58]
-        ex_ctrl_sel_imm <= 3'h0;
-      end else if (32'h3 == id_inst) begin // @[Mux.scala 81:58]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_sel_imm <= 3'h4; // @[RISCV.scala 73:24]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      if (id_ctrl_decoder_0) begin // @[Mux.scala 101:16]
+        ex_ctrl_sel_imm <= 3'h1;
+      end else if (_id_ctrl_decoder_ctrl_signals_T_3) begin // @[Mux.scala 101:16]
         ex_ctrl_sel_imm <= 3'h4;
       end else begin
-        ex_ctrl_sel_imm <= _id_ctrl_decoder_ctrl_signals_T_86;
+        ex_ctrl_sel_imm <= _id_ctrl_decoder_ctrl_signals_T_136;
       end
     end else begin
-      ex_ctrl_sel_imm <= 3'h4; // @[RISCV.scala 221:13]
+      ex_ctrl_sel_imm <= 3'h4; // @[RISCV.scala 223:13]
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_alu_fn <= 4'h0; // @[RISCV.scala 71:24]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      ex_ctrl_alu_fn <= id_ctrl_alu_fn; // @[RISCV.scala 214:13]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_alu_fn <= 4'h0; // @[RISCV.scala 73:24]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      ex_ctrl_alu_fn <= id_ctrl_alu_fn; // @[RISCV.scala 216:13]
     end else begin
-      ex_ctrl_alu_fn <= 4'h0; // @[RISCV.scala 221:13]
+      ex_ctrl_alu_fn <= 4'h0; // @[RISCV.scala 223:13]
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_mem <= 1'h0; // @[RISCV.scala 71:24]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_mem <= 1'h0; // @[RISCV.scala 73:24]
     end else begin
       ex_ctrl_mem <= _GEN_12;
     end
-    if (reset) begin // @[RISCV.scala 71:24]
-      ex_ctrl_mem_cmd <= 5'h0; // @[RISCV.scala 71:24]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      ex_ctrl_mem_cmd <= id_ctrl_mem_cmd; // @[RISCV.scala 214:13]
+    if (reset) begin // @[RISCV.scala 73:24]
+      ex_ctrl_mem_cmd <= 5'h0; // @[RISCV.scala 73:24]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      ex_ctrl_mem_cmd <= id_ctrl_mem_cmd; // @[RISCV.scala 216:13]
     end else begin
-      ex_ctrl_mem_cmd <= 5'h0; // @[RISCV.scala 221:13]
+      ex_ctrl_mem_cmd <= 5'h0; // @[RISCV.scala 223:13]
     end
-    ex_ctrl_wxd <= reset | _GEN_9; // @[RISCV.scala 71:{24,24}]
-    if (reset) begin // @[RISCV.scala 72:29]
-      ex_reg_raddr_0 <= 5'h0; // @[RISCV.scala 72:29]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      ex_reg_raddr_0 <= id_inst_arange_rs1; // @[RISCV.scala 215:18]
+    ex_ctrl_wxd <= reset | _GEN_9; // @[RISCV.scala 73:{24,24}]
+    if (reset) begin // @[RISCV.scala 74:29]
+      ex_reg_raddr_0 <= 5'h0; // @[RISCV.scala 74:29]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      ex_reg_raddr_0 <= id_inst_arange_rs1; // @[RISCV.scala 217:18]
     end else begin
-      ex_reg_raddr_0 <= 5'h0; // @[RISCV.scala 223:18]
+      ex_reg_raddr_0 <= 5'h0; // @[RISCV.scala 225:18]
     end
-    if (reset) begin // @[RISCV.scala 72:29]
-      ex_reg_raddr_1 <= 5'h0; // @[RISCV.scala 72:29]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      ex_reg_raddr_1 <= id_inst_arange_rs2; // @[RISCV.scala 215:18]
+    if (reset) begin // @[RISCV.scala 74:29]
+      ex_reg_raddr_1 <= 5'h0; // @[RISCV.scala 74:29]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      ex_reg_raddr_1 <= id_inst_arange_rs2; // @[RISCV.scala 217:18]
     end else begin
-      ex_reg_raddr_1 <= 5'h0; // @[RISCV.scala 223:18]
+      ex_reg_raddr_1 <= 5'h0; // @[RISCV.scala 225:18]
     end
-    if (reset) begin // @[RISCV.scala 73:29]
-      ex_reg_waddr <= 5'h0; // @[RISCV.scala 73:29]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
-      ex_reg_waddr <= id_inst_arange_rd; // @[RISCV.scala 216:18]
+    if (reset) begin // @[RISCV.scala 75:29]
+      ex_reg_waddr <= 5'h0; // @[RISCV.scala 75:29]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
+      ex_reg_waddr <= id_inst_arange_rd; // @[RISCV.scala 218:18]
     end else begin
-      ex_reg_waddr <= 5'h0; // @[RISCV.scala 224:18]
+      ex_reg_waddr <= 5'h0; // @[RISCV.scala 226:18]
     end
-    if (reset) begin // @[RISCV.scala 74:22]
-      ex_rs_0 <= 32'h0; // @[RISCV.scala 74:22]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
+    if (reset) begin // @[RISCV.scala 76:22]
+      ex_rs_0 <= 32'h0; // @[RISCV.scala 76:22]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
       if (id_inst_arange_rs1 == 5'h0) begin // @[Register.scala 12:8]
         ex_rs_0 <= 32'h0;
       end else begin
         ex_rs_0 <= rf_id_rs_MPORT_data;
       end
     end else begin
-      ex_rs_0 <= 32'h0; // @[RISCV.scala 225:11]
+      ex_rs_0 <= 32'h0; // @[RISCV.scala 227:11]
     end
-    if (reset) begin // @[RISCV.scala 74:22]
-      ex_rs_1 <= 32'h0; // @[RISCV.scala 74:22]
-    end else if (_T_2) begin // @[RISCV.scala 210:36]
+    if (reset) begin // @[RISCV.scala 76:22]
+      ex_rs_1 <= 32'h0; // @[RISCV.scala 76:22]
+    end else if (_T_2) begin // @[RISCV.scala 212:36]
       if (id_inst_arange_rs2 == 5'h0) begin // @[Register.scala 12:8]
         ex_rs_1 <= 32'h0;
       end else begin
         ex_rs_1 <= rf_id_rs_MPORT_1_data;
       end
     end else begin
-      ex_rs_1 <= 32'h0; // @[RISCV.scala 225:11]
+      ex_rs_1 <= 32'h0; // @[RISCV.scala 227:11]
     end
-    if (reset) begin // @[RISCV.scala 85:23]
-      mem_pc <= 32'h80000000; // @[RISCV.scala 85:23]
-    end else if (_T_1) begin // @[RISCV.scala 306:21]
-      mem_pc <= ex_pc; // @[RISCV.scala 307:12]
+    if (reset) begin // @[RISCV.scala 87:23]
+      mem_pc <= 32'h80000000; // @[RISCV.scala 87:23]
+    end else if (_T_1) begin // @[RISCV.scala 308:21]
+      mem_pc <= ex_pc; // @[RISCV.scala 309:12]
     end else begin
-      mem_pc <= 32'h80000000; // @[RISCV.scala 316:12]
+      mem_pc <= 32'h80000000; // @[RISCV.scala 318:12]
     end
-    if (reset) begin // @[RISCV.scala 86:24]
-      mem_npc <= 32'h80000004; // @[RISCV.scala 86:24]
-    end else if (_T_1) begin // @[RISCV.scala 306:21]
-      mem_npc <= ex_npc; // @[RISCV.scala 308:13]
+    if (reset) begin // @[RISCV.scala 88:24]
+      mem_npc <= 32'h80000004; // @[RISCV.scala 88:24]
+    end else if (_T_1) begin // @[RISCV.scala 308:21]
+      mem_npc <= ex_npc; // @[RISCV.scala 310:13]
     end else begin
-      mem_npc <= 32'h80000004; // @[RISCV.scala 317:13]
+      mem_npc <= 32'h80000004; // @[RISCV.scala 319:13]
     end
-    if (reset) begin // @[RISCV.scala 87:25]
-      mem_ctrl_branch <= 1'h0; // @[RISCV.scala 87:25]
+    if (reset) begin // @[RISCV.scala 89:25]
+      mem_ctrl_branch <= 1'h0; // @[RISCV.scala 89:25]
     end else begin
       mem_ctrl_branch <= _GEN_37;
     end
-    if (reset) begin // @[RISCV.scala 87:25]
-      mem_ctrl_jal <= 1'h0; // @[RISCV.scala 87:25]
+    if (reset) begin // @[RISCV.scala 89:25]
+      mem_ctrl_jal <= 1'h0; // @[RISCV.scala 89:25]
     end else begin
       mem_ctrl_jal <= _GEN_36;
     end
-    if (reset) begin // @[RISCV.scala 87:25]
-      mem_ctrl_jalr <= 1'h0; // @[RISCV.scala 87:25]
+    if (reset) begin // @[RISCV.scala 89:25]
+      mem_ctrl_jalr <= 1'h0; // @[RISCV.scala 89:25]
     end else begin
       mem_ctrl_jalr <= _GEN_35;
     end
-    if (reset) begin // @[RISCV.scala 87:25]
-      mem_ctrl_mem <= 1'h0; // @[RISCV.scala 87:25]
+    if (reset) begin // @[RISCV.scala 89:25]
+      mem_ctrl_mem <= 1'h0; // @[RISCV.scala 89:25]
     end else begin
       mem_ctrl_mem <= _GEN_30;
     end
-    if (reset) begin // @[RISCV.scala 87:25]
-      mem_ctrl_mem_cmd <= 5'h0; // @[RISCV.scala 87:25]
-    end else if (_T_1) begin // @[RISCV.scala 306:21]
-      mem_ctrl_mem_cmd <= ex_ctrl_mem_cmd; // @[RISCV.scala 309:14]
+    if (reset) begin // @[RISCV.scala 89:25]
+      mem_ctrl_mem_cmd <= 5'h0; // @[RISCV.scala 89:25]
+    end else if (_T_1) begin // @[RISCV.scala 308:21]
+      mem_ctrl_mem_cmd <= ex_ctrl_mem_cmd; // @[RISCV.scala 311:14]
     end else begin
-      mem_ctrl_mem_cmd <= 5'h0; // @[RISCV.scala 318:14]
+      mem_ctrl_mem_cmd <= 5'h0; // @[RISCV.scala 320:14]
     end
-    mem_ctrl_wxd <= reset | _GEN_27; // @[RISCV.scala 87:{25,25}]
-    if (reset) begin // @[RISCV.scala 88:30]
-      mem_reg_waddr <= 5'h0; // @[RISCV.scala 88:30]
-    end else if (_T_1) begin // @[RISCV.scala 306:21]
-      mem_reg_waddr <= ex_reg_waddr; // @[RISCV.scala 311:19]
+    mem_ctrl_wxd <= reset | _GEN_27; // @[RISCV.scala 89:{25,25}]
+    if (reset) begin // @[RISCV.scala 90:30]
+      mem_reg_waddr <= 5'h0; // @[RISCV.scala 90:30]
+    end else if (_T_1) begin // @[RISCV.scala 308:21]
+      mem_reg_waddr <= ex_reg_waddr; // @[RISCV.scala 313:19]
     end else begin
-      mem_reg_waddr <= 5'h0; // @[RISCV.scala 320:19]
+      mem_reg_waddr <= 5'h0; // @[RISCV.scala 322:19]
     end
-    if (reset) begin // @[RISCV.scala 89:23]
-      mem_rs_1 <= 32'h0; // @[RISCV.scala 89:23]
-    end else if (_T_1) begin // @[RISCV.scala 306:21]
+    if (reset) begin // @[RISCV.scala 91:23]
+      mem_rs_1 <= 32'h0; // @[RISCV.scala 91:23]
+    end else if (_T_1) begin // @[RISCV.scala 308:21]
       if (_ex_rs_bypassed_T_21) begin // @[Mux.scala 101:16]
         mem_rs_1 <= mem_alu_out;
       end else if (_ex_rs_bypassed_T_30) begin // @[Mux.scala 101:16]
@@ -765,61 +789,61 @@ module RISCV(
         mem_rs_1 <= ex_rs_1;
       end
     end else begin
-      mem_rs_1 <= 32'h0; // @[RISCV.scala 319:12]
+      mem_rs_1 <= 32'h0; // @[RISCV.scala 321:12]
     end
-    if (reset) begin // @[RISCV.scala 90:24]
-      mem_imm <= 32'sh0; // @[RISCV.scala 90:24]
-    end else if (_T_1) begin // @[RISCV.scala 306:21]
-      mem_imm <= ex_imm; // @[RISCV.scala 312:13]
+    if (reset) begin // @[RISCV.scala 92:24]
+      mem_imm <= 32'sh0; // @[RISCV.scala 92:24]
+    end else if (_T_1) begin // @[RISCV.scala 308:21]
+      mem_imm <= ex_imm; // @[RISCV.scala 314:13]
     end else begin
-      mem_imm <= 32'sh0; // @[RISCV.scala 321:13]
+      mem_imm <= 32'sh0; // @[RISCV.scala 323:13]
     end
-    if (reset) begin // @[RISCV.scala 91:28]
-      mem_alu_out <= 32'h0; // @[RISCV.scala 91:28]
-    end else if (_T_1) begin // @[RISCV.scala 306:21]
-      mem_alu_out <= alu_io_alu_out; // @[RISCV.scala 313:17]
+    if (reset) begin // @[RISCV.scala 93:28]
+      mem_alu_out <= 32'h0; // @[RISCV.scala 93:28]
+    end else if (_T_1) begin // @[RISCV.scala 308:21]
+      mem_alu_out <= alu_io_alu_out; // @[RISCV.scala 315:17]
     end else begin
-      mem_alu_out <= 32'h0; // @[RISCV.scala 322:17]
+      mem_alu_out <= 32'h0; // @[RISCV.scala 324:17]
     end
-    if (reset) begin // @[RISCV.scala 92:32]
-      mem_alu_cmp_out <= 1'h0; // @[RISCV.scala 92:32]
+    if (reset) begin // @[RISCV.scala 94:32]
+      mem_alu_cmp_out <= 1'h0; // @[RISCV.scala 94:32]
     end else begin
       mem_alu_cmp_out <= _GEN_43;
     end
-    if (reset) begin // @[RISCV.scala 100:23]
-      wb_npc <= 32'h80000004; // @[RISCV.scala 100:23]
+    if (reset) begin // @[RISCV.scala 102:23]
+      wb_npc <= 32'h80000004; // @[RISCV.scala 102:23]
     end else begin
-      wb_npc <= mem_npc; // @[RISCV.scala 347:10]
+      wb_npc <= mem_npc; // @[RISCV.scala 349:10]
     end
-    if (reset) begin // @[RISCV.scala 101:24]
-      wb_ctrl_jalr <= 1'h0; // @[RISCV.scala 101:24]
+    if (reset) begin // @[RISCV.scala 103:24]
+      wb_ctrl_jalr <= 1'h0; // @[RISCV.scala 103:24]
     end else begin
-      wb_ctrl_jalr <= mem_ctrl_jalr; // @[RISCV.scala 348:11]
+      wb_ctrl_jalr <= mem_ctrl_jalr; // @[RISCV.scala 350:11]
     end
-    if (reset) begin // @[RISCV.scala 101:24]
-      wb_ctrl_mem <= 1'h0; // @[RISCV.scala 101:24]
+    if (reset) begin // @[RISCV.scala 103:24]
+      wb_ctrl_mem <= 1'h0; // @[RISCV.scala 103:24]
     end else begin
-      wb_ctrl_mem <= mem_ctrl_mem; // @[RISCV.scala 348:11]
+      wb_ctrl_mem <= mem_ctrl_mem; // @[RISCV.scala 350:11]
     end
-    wb_ctrl_wxd <= reset | mem_ctrl_wxd; // @[RISCV.scala 101:{24,24} 348:11]
-    if (reset) begin // @[RISCV.scala 103:29]
-      rf_waddr <= 5'h0; // @[RISCV.scala 103:29]
+    wb_ctrl_wxd <= reset | mem_ctrl_wxd; // @[RISCV.scala 103:{24,24} 350:11]
+    if (reset) begin // @[RISCV.scala 105:29]
+      rf_waddr <= 5'h0; // @[RISCV.scala 105:29]
     end else begin
-      rf_waddr <= mem_reg_waddr; // @[RISCV.scala 349:16]
+      rf_waddr <= mem_reg_waddr; // @[RISCV.scala 351:16]
     end
-    if (reset) begin // @[RISCV.scala 104:27]
-      wb_alu_out <= 32'h0; // @[RISCV.scala 104:27]
+    if (reset) begin // @[RISCV.scala 106:27]
+      wb_alu_out <= 32'h0; // @[RISCV.scala 106:27]
     end else begin
-      wb_alu_out <= mem_alu_out; // @[RISCV.scala 350:14]
+      wb_alu_out <= mem_alu_out; // @[RISCV.scala 352:14]
     end
-    if (reset) begin // @[RISCV.scala 105:34]
-      wb_dData_readData <= 32'h0; // @[RISCV.scala 105:34]
+    if (reset) begin // @[RISCV.scala 107:34]
+      wb_dData_readData <= 32'h0; // @[RISCV.scala 107:34]
     end else begin
-      wb_dData_readData <= io_dData_readData; // @[RISCV.scala 351:21]
+      wb_dData_readData <= io_dData_readData; // @[RISCV.scala 353:21]
     end
-    if (reset) begin // @[RISCV.scala 125:19]
-      pc <= 32'h80000000; // @[RISCV.scala 125:19]
-    end else if (_T) begin // @[RISCV.scala 388:21]
+    if (reset) begin // @[RISCV.scala 127:19]
+      pc <= 32'h80000000; // @[RISCV.scala 127:19]
+    end else if (_T) begin // @[RISCV.scala 395:21]
       if (_jump_flush_T_5) begin // @[Mux.scala 101:16]
         pc <= _pc_T_8;
       end else if (mem_ctrl_jalr) begin // @[Mux.scala 101:16]
