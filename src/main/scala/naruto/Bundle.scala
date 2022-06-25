@@ -15,7 +15,7 @@ class TopIo[Conf <: RVConfig](conf: Conf) extends Bundle {
   // デバッグモニタ
   val dbg_monitor = new CpuDebugMonitor(conf)
   // 開発のみ使用 (HexTest)
-  val exit = Output(Bool())
+  val exit = if (conf.debug == true) Output(UInt(1.W)) else Output(UInt(0.W))
 }
 
 // ==========================================================================================

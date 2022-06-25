@@ -17,7 +17,7 @@ class HexTest extends AnyFlatSpec with ChiselScalatestTester {
     // test(new TopDevelop(new RV32ConfigDebug)).withAnnotations(Seq(VerilatorBackendAnnotation)) {
     test(new TopDevelop(new RV32ConfigDebug)) { c =>
       println("")
-      while (!c.io.exit.peekBoolean()) {
+      while (c.io.exit.peekInt() == 0) {
         c.clock.step(1)
       }
     }

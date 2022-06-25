@@ -103,10 +103,10 @@ class TopDevelop[Conf <: RVConfig](conf: Conf) extends Module {
 
   val count = RegInit(0.U(6.W))
   count := count + 1.U
-  io.exit := false.B
+  io.exit := 0.U
   printf(p"${count}|    PC     : 0x${Hexadecimal(iData.io.inst)}\n")
   when(iData.io.inst === "h0000006f".U) {
-    io.exit := true.B
+    io.exit := 1.U
   }
 }
 
@@ -238,6 +238,6 @@ class Top[Conf <: RVConfig](conf: Conf) extends Module {
     io.dbg_monitor.reg_31 := cpu.io.dbg_monitor.reg_31
 
     // io.exit (本番ではHexTestが使えないのでfalse.B入力) -------------------------------------------
-    io.exit := false.B
+    io.exit := 0.U
   }
 }
