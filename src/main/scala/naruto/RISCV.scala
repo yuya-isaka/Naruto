@@ -354,39 +354,39 @@ class RISCV[Conf <: RVConfig](conf: Conf) extends Module {
 
   // 本番 -------------------------------------------------
   // 立ち下がりエッジで書き込み
-  // val revClock = Wire(new Clock)
-  // revClock := (~(clock.asBool)).asClock
-  // withClock(revClock) {
-  //   val rf_wen = wb_ctrl.wxd
-  //   val rf_waddr = wb_reg_waddr
-  //   val rf_wdata = MuxCase(
-  //     wb_alu_out,
-  //     Seq(
-  //       // ジャンプ命令
-  //       // ジャンプ命令 (jalrの時、rdにnpc格納)
-  //       (wb_ctrl.jalr === Y) -> wb_npc,
-  //       // メモリアクセス命令
-  //       // メモリアクセス命令 (ロード命令)
-  //       (wb_ctrl.mem === Y) -> wb_dData_readData
-  //     )
-  //   )
-  //   when(rf_wen) { rf.write(rf_waddr, rf_wdata) }
-  // }
+  val revClock = Wire(new Clock)
+  revClock := (~(clock.asBool)).asClock
+  withClock(revClock) {
+    val rf_wen = wb_ctrl.wxd
+    val rf_waddr = wb_reg_waddr
+    val rf_wdata = MuxCase(
+      wb_alu_out,
+      Seq(
+        // ジャンプ命令
+        // ジャンプ命令 (jalrの時、rdにnpc格納)
+        (wb_ctrl.jalr === Y) -> wb_npc,
+        // メモリアクセス命令
+        // メモリアクセス命令 (ロード命令)
+        (wb_ctrl.mem === Y) -> wb_dData_readData
+      )
+    )
+    when(rf_wen) { rf.write(rf_waddr, rf_wdata) }
+  }
 
   // 開発 -------------------------------------------------
 
-  val rf_wen = wb_ctrl.wxd
-  val rf_waddr = wb_reg_waddr
-  val rf_wdata = MuxCase(
-    wb_alu_out,
-    Seq(
-      // ジャンプ命令 (jalrの時、rdにnpc格納)
-      (wb_ctrl.jalr === Y) -> wb_npc,
-      // メモリアクセス命令 (ロード命令)
-      (wb_ctrl.mem === Y) -> wb_dData_readData
-    )
-  )
-  when(rf_wen) { rf.write(rf_waddr, rf_wdata) }
+  // val rf_wen = wb_ctrl.wxd
+  // val rf_waddr = wb_reg_waddr
+  // val rf_wdata = MuxCase(
+  //   wb_alu_out,
+  //   Seq(
+  //     // ジャンプ命令 (jalrの時、rdにnpc格納)
+  //     (wb_ctrl.jalr === Y) -> wb_npc,
+  //     // メモリアクセス命令 (ロード命令)
+  //     (wb_ctrl.mem === Y) -> wb_dData_readData
+  //   )
+  // )
+  // when(rf_wen) { rf.write(rf_waddr, rf_wdata) }
 
   // PC更新 -----------------------------------------------------------------------
 
