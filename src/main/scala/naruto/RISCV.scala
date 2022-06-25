@@ -353,6 +353,7 @@ class RISCV[Conf <: RVConfig](conf: Conf) extends Module {
   wb_dData_readData := io.dData.readData
 
   // 立ち下がりエッジで書き込み
+  // 様子見
   val revClock = Wire(new Clock)
   revClock := (~(clock.asBool)).asClock
   withClock(revClock) {
