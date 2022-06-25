@@ -253,6 +253,7 @@ module RISCV(
   wire [4:0] rf_MPORT_addr; // @[Register.scala 8:15]
   wire  rf_MPORT_mask; // @[Register.scala 8:15]
   wire  rf_MPORT_en; // @[Register.scala 8:15]
+  wire  rf_clock;
   wire [3:0] alu_io_fn; // @[RISCV.scala 289:19]
   wire [31:0] alu_io_in1; // @[RISCV.scala 289:19]
   wire [31:0] alu_io_in2; // @[RISCV.scala 289:19]
@@ -296,7 +297,7 @@ module RISCV(
   reg  wb_ctrl_jalr; // @[RISCV.scala 103:24]
   reg  wb_ctrl_mem; // @[RISCV.scala 103:24]
   reg  wb_ctrl_wxd; // @[RISCV.scala 103:24]
-  reg [4:0] rf_waddr; // @[RISCV.scala 105:29]
+  reg [4:0] wb_reg_waddr; // @[RISCV.scala 105:29]
   reg [31:0] wb_alu_out; // @[RISCV.scala 106:27]
   reg [31:0] wb_dData_readData; // @[RISCV.scala 107:34]
   reg [31:0] pc; // @[RISCV.scala 127:19]
@@ -391,7 +392,7 @@ module RISCV(
   wire  _ex_rs_bypassed_T = ex_reg_raddr_0 != 5'h0; // @[RISCV.scala 240:29]
   wire  _ex_rs_bypassed_T_2 = _ex_rs_bypassed_T & ex_reg_raddr_0 == mem_reg_waddr; // @[RISCV.scala 241:13]
   wire  _ex_rs_bypassed_T_5 = _ex_rs_bypassed_T_2 & mem_ctrl_wxd; // @[RISCV.scala 242:13]
-  wire  _ex_rs_bypassed_T_8 = _ex_rs_bypassed_T & ex_reg_raddr_0 == rf_waddr; // @[RISCV.scala 247:13]
+  wire  _ex_rs_bypassed_T_8 = _ex_rs_bypassed_T & ex_reg_raddr_0 == wb_reg_waddr; // @[RISCV.scala 247:13]
   wire  _ex_rs_bypassed_T_11 = _ex_rs_bypassed_T_8 & wb_ctrl_wxd; // @[RISCV.scala 248:13]
   wire  _ex_rs_bypassed_T_14 = _ex_rs_bypassed_T_11 & wb_ctrl_mem; // @[RISCV.scala 249:13]
   wire [31:0] _ex_rs_bypassed_T_15 = _ex_rs_bypassed_T_14 ? io_dData_readData : ex_rs_0; // @[Mux.scala 101:16]
@@ -399,7 +400,7 @@ module RISCV(
   wire  _ex_rs_bypassed_T_16 = ex_reg_raddr_1 != 5'h0; // @[RISCV.scala 240:29]
   wire  _ex_rs_bypassed_T_18 = _ex_rs_bypassed_T_16 & ex_reg_raddr_1 == mem_reg_waddr; // @[RISCV.scala 241:13]
   wire  _ex_rs_bypassed_T_21 = _ex_rs_bypassed_T_18 & mem_ctrl_wxd; // @[RISCV.scala 242:13]
-  wire  _ex_rs_bypassed_T_24 = _ex_rs_bypassed_T_16 & ex_reg_raddr_1 == rf_waddr; // @[RISCV.scala 247:13]
+  wire  _ex_rs_bypassed_T_24 = _ex_rs_bypassed_T_16 & ex_reg_raddr_1 == wb_reg_waddr; // @[RISCV.scala 247:13]
   wire  _ex_rs_bypassed_T_27 = _ex_rs_bypassed_T_24 & wb_ctrl_wxd; // @[RISCV.scala 248:13]
   wire  _ex_rs_bypassed_T_30 = _ex_rs_bypassed_T_27 & wb_ctrl_mem; // @[RISCV.scala 249:13]
   wire [31:0] _ex_rs_bypassed_T_31 = _ex_rs_bypassed_T_30 ? io_dData_readData : ex_rs_1; // @[Mux.scala 101:16]
@@ -444,7 +445,7 @@ module RISCV(
   wire  _GEN_37 = _T_1 & ex_ctrl_branch; // @[RISCV.scala 308:21 311:14 320:14]
   wire  _GEN_43 = _T_1 & alu_io_cmp_out; // @[RISCV.scala 308:21 316:21 325:21]
   wire [31:0] _rf_wdata_T_4 = wb_ctrl_mem ? wb_dData_readData : wb_alu_out; // @[Mux.scala 101:16]
-  wire  _T_7 = rf_waddr != 5'h0; // @[Register.scala 17:15]
+  wire  _T_7 = wb_reg_waddr != 5'h0; // @[Register.scala 17:15]
   wire [31:0] _pc_T_8 = mem_pc + mem_imm; // @[RISCV.scala 402:89]
   ALU alu ( // @[RISCV.scala 289:19]
     .io_fn(alu_io_fn),
@@ -556,7 +557,7 @@ module RISCV(
   assign rf_io_dbg_monitor_reg_31_MPORT_addr = 5'h1f;
   assign rf_io_dbg_monitor_reg_31_MPORT_data = rf[rf_io_dbg_monitor_reg_31_MPORT_addr]; // @[Register.scala 8:15]
   assign rf_MPORT_data = wb_ctrl_jalr ? wb_npc : _rf_wdata_T_4;
-  assign rf_MPORT_addr = rf_waddr;
+  assign rf_MPORT_addr = wb_reg_waddr;
   assign rf_MPORT_mask = 1'h1;
   assign rf_MPORT_en = wb_ctrl_wxd & _T_7;
   assign io_iData_addr = pc; // @[RISCV.scala 137:17]
@@ -566,10 +567,13 @@ module RISCV(
   assign alu_io_fn = ex_ctrl_alu_fn; // @[RISCV.scala 290:13]
   assign alu_io_in1 = 2'h2 == ex_ctrl_sel_alu1 ? ex_pc : _ex_op1_T_1; // @[Mux.scala 81:58]
   assign alu_io_in2 = 2'h1 == ex_ctrl_sel_alu2 ? 32'h4 : _ex_op2_T_4; // @[Mux.scala 81:58]
-  always @(posedge clock) begin
+  assign rf_clock = ~clock;
+  always @(posedge rf_clock) begin
     if (rf_MPORT_en & rf_MPORT_mask) begin
       rf[rf_MPORT_addr] <= rf_MPORT_data; // @[Register.scala 8:15]
     end
+  end
+  always @(posedge clock) begin
     if (reset) begin // @[RISCV.scala 58:22]
       id_pc <= 32'h80000000; // @[RISCV.scala 58:22]
     end else if (~load_stall & ~jump_flush) begin // @[RISCV.scala 152:36]
@@ -827,9 +831,9 @@ module RISCV(
     end
     wb_ctrl_wxd <= reset | mem_ctrl_wxd; // @[RISCV.scala 103:{24,24} 350:11]
     if (reset) begin // @[RISCV.scala 105:29]
-      rf_waddr <= 5'h0; // @[RISCV.scala 105:29]
+      wb_reg_waddr <= 5'h0; // @[RISCV.scala 105:29]
     end else begin
-      rf_waddr <= mem_reg_waddr; // @[RISCV.scala 351:16]
+      wb_reg_waddr <= mem_reg_waddr; // @[RISCV.scala 351:16]
     end
     if (reset) begin // @[RISCV.scala 106:27]
       wb_alu_out <= 32'h0; // @[RISCV.scala 106:27]
@@ -971,7 +975,7 @@ initial begin
   _RAND_38 = {1{`RANDOM}};
   wb_ctrl_wxd = _RAND_38[0:0];
   _RAND_39 = {1{`RANDOM}};
-  rf_waddr = _RAND_39[4:0];
+  wb_reg_waddr = _RAND_39[4:0];
   _RAND_40 = {1{`RANDOM}};
   wb_alu_out = _RAND_40[31:0];
   _RAND_41 = {1{`RANDOM}};
@@ -18856,9 +18860,11 @@ module Top(
   input   clock,
   input   reset,
   input   io_rxData,
-  output  io_txData,
-  output  io_exit
+  output  io_txData
 );
+`ifdef RANDOMIZE_REG_INIT
+  reg [31:0] _RAND_0;
+`endif // RANDOMIZE_REG_INIT
   wire  slowClock_clk_original; // @[Top.scala 144:25]
   wire  slowClock_clk_new; // @[Top.scala 144:25]
   wire  cpu_clock; // @[Top.scala 151:21]
@@ -18886,6 +18892,8 @@ module Top(
   wire  _T_3 = 32'h10000000 == cpu_io_dData_addr; // @[Top.scala 181:24]
   wire [31:0] _GEN_4 = 32'h10000000 == cpu_io_dData_addr ? cpu_io_dData_writeData : 32'h0; // @[Top.scala 181:47 182:29 185:29]
   wire [31:0] _GEN_6 = _T_2 ? dData_io_readData : 32'h0; // @[Top.scala 195:7 196:29 198:29]
+  reg [5:0] count; // @[Top.scala 243:24]
+  wire [5:0] _count_T_1 = count + 6'h1; // @[Top.scala 244:20]
   SlowClock slowClock ( // @[Top.scala 144:25]
     .clk_original(slowClock_clk_original),
     .clk_new(slowClock_clk_new)
@@ -18920,7 +18928,6 @@ module Top(
     .io_sendData_bits(uart_io_sendData_bits)
   );
   assign io_txData = uart_io_txData; // @[Top.scala 178:15]
-  assign io_exit = 1'h0; // @[Top.scala 241:13]
   assign slowClock_clk_original = clock; // @[Top.scala 145:29]
   assign cpu_clock = slowClock_clk_new;
   assign cpu_reset = reset;
@@ -18936,4 +18943,67 @@ module Top(
   assign uart_reset = reset;
   assign uart_io_sendData_valid = 32'h10000000 == cpu_io_dData_addr & cpu_io_dData_writeEnable; // @[Top.scala 181:47 183:30 186:30]
   assign uart_io_sendData_bits = _GEN_4[7:0];
+  always @(posedge slowClock_clk_new) begin
+    if (reset) begin // @[Top.scala 243:24]
+      count <= 6'h0; // @[Top.scala 243:24]
+    end else begin
+      count <= _count_T_1; // @[Top.scala 244:11]
+    end
+    `ifndef SYNTHESIS
+    `ifdef PRINTF_COND
+      if (`PRINTF_COND) begin
+    `endif
+        if (~reset) begin
+          $fwrite(32'h80000002,"%d|    PC     : 0x%x\n",count,iData_io_inst); // @[Top.scala 245:11]
+        end
+    `ifdef PRINTF_COND
+      end
+    `endif
+    `endif // SYNTHESIS
+  end
+// Register and memory initialization
+`ifdef RANDOMIZE_GARBAGE_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_INVALID_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_REG_INIT
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+`define RANDOMIZE
+`endif
+`ifndef RANDOM
+`define RANDOM $random
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+  integer initvar;
+`endif
+`ifndef SYNTHESIS
+`ifdef FIRRTL_BEFORE_INITIAL
+`FIRRTL_BEFORE_INITIAL
+`endif
+initial begin
+  `ifdef RANDOMIZE
+    `ifdef INIT_RANDOM
+      `INIT_RANDOM
+    `endif
+    `ifndef VERILATOR
+      `ifdef RANDOMIZE_DELAY
+        #`RANDOMIZE_DELAY begin end
+      `else
+        #0.002 begin end
+      `endif
+    `endif
+`ifdef RANDOMIZE_REG_INIT
+  _RAND_0 = {1{`RANDOM}};
+  count = _RAND_0[5:0];
+`endif // RANDOMIZE_REG_INIT
+  `endif // RANDOMIZE
+end // initial
+`ifdef FIRRTL_AFTER_INITIAL
+`FIRRTL_AFTER_INITIAL
+`endif
+`endif // SYNTHESIS
 endmodule

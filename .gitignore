@@ -347,4 +347,5 @@ project
 .scalafmt.conf
 memo.txt
 chisel-memo.txt
-rtl
+Top.anno.json
+Top.fir
