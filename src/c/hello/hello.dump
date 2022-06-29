@@ -1,0 +1,24 @@
+
+hello:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+80000000 <_start>:
+80000000:	00000417          	auipc	s0,0x0
+80000004:	02c40413          	addi	s0,s0,44 # 8000002c <message>
+
+80000008 <putloop>:
+80000008:	00040503          	lb	a0,0(s0)
+8000000c:	00140413          	addi	s0,s0,1
+80000010:	00050c63          	beqz	a0,80000028 <fin>
+80000014:	008000ef          	jal	ra,8000001c <sendchar>
+80000018:	ff1ff06f          	j	80000008 <putloop>
+
+8000001c <sendchar>:
+8000001c:	100002b7          	lui	t0,0x10000
+80000020:	00a28023          	sb	a0,0(t0) # 10000000 <UART_ADDR>
+80000024:	00008067          	ret
+
+80000028 <fin>:
+80000028:	0000006f          	j	80000028 <fin>
