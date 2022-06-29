@@ -104,7 +104,7 @@ class TopDevelop[Conf <: RVConfig](conf: Conf) extends Module {
   val count = RegInit(0.U(6.W))
   count := count + 1.U
   io.exit := 0.U
-  printf(p"${count}|    PC     : 0x${Hexadecimal(iData.io.inst)}\n")
+  printf(p"  ${count}|    PC     : 0x${Hexadecimal(iData.io.inst)}\n")
   when(iData.io.inst === "h0000006f".U) {
     io.exit := 1.U
   }

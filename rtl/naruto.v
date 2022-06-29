@@ -446,7 +446,7 @@ module RISCV(
   wire  _GEN_43 = _T_1 & alu_io_cmp_out; // @[RISCV.scala 308:21 316:21 325:21]
   wire [31:0] _rf_wdata_T_4 = wb_ctrl_mem ? wb_dData_readData : wb_alu_out; // @[Mux.scala 101:16]
   wire  _T_7 = wb_reg_waddr != 5'h0; // @[Register.scala 17:15]
-  wire [31:0] _pc_T_8 = mem_pc + mem_imm; // @[RISCV.scala 402:89]
+  wire [31:0] _pc_T_8 = mem_pc + mem_imm; // @[RISCV.scala 387:89]
   ALU alu ( // @[RISCV.scala 289:19]
     .io_fn(alu_io_fn),
     .io_in1(alu_io_in1),
@@ -847,7 +847,7 @@ module RISCV(
     end
     if (reset) begin // @[RISCV.scala 127:19]
       pc <= 32'h80000000; // @[RISCV.scala 127:19]
-    end else if (_T) begin // @[RISCV.scala 395:21]
+    end else if (_T) begin // @[RISCV.scala 380:21]
       if (_jump_flush_T_5) begin // @[Mux.scala 101:16]
         pc <= _pc_T_8;
       end else if (mem_ctrl_jalr) begin // @[Mux.scala 101:16]
@@ -994,7 +994,7 @@ module IData(
   input  [31:0] io_addr,
   output [31:0] io_inst
 );
-  wire [31:0] _GEN_1 = 8'h1 == io_addr[9:2] ? 32'h40413 : 32'h1417; // @[InstMemory.scala 20:{11,11}]
+  wire [31:0] _GEN_1 = 8'h1 == io_addr[9:2] ? 32'h2c40413 : 32'h417; // @[InstMemory.scala 20:{11,11}]
   wire [31:0] _GEN_2 = 8'h2 == io_addr[9:2] ? 32'h40503 : _GEN_1; // @[InstMemory.scala 20:{11,11}]
   wire [31:0] _GEN_3 = 8'h3 == io_addr[9:2] ? 32'h140413 : _GEN_2; // @[InstMemory.scala 20:{11,11}]
   wire [31:0] _GEN_4 = 8'h4 == io_addr[9:2] ? 32'h50c63 : _GEN_3; // @[InstMemory.scala 20:{11,11}]
@@ -18862,9 +18862,6 @@ module Top(
   input   io_rxData,
   output  io_txData
 );
-`ifdef RANDOMIZE_REG_INIT
-  reg [31:0] _RAND_0;
-`endif // RANDOMIZE_REG_INIT
   wire  slowClock_clk_original; // @[Top.scala 144:25]
   wire  slowClock_clk_new; // @[Top.scala 144:25]
   wire  cpu_clock; // @[Top.scala 151:21]
@@ -18892,8 +18889,6 @@ module Top(
   wire  _T_3 = 32'h10000000 == cpu_io_dData_addr; // @[Top.scala 181:24]
   wire [31:0] _GEN_4 = 32'h10000000 == cpu_io_dData_addr ? cpu_io_dData_writeData : 32'h0; // @[Top.scala 181:47 182:29 185:29]
   wire [31:0] _GEN_6 = _T_2 ? dData_io_readData : 32'h0; // @[Top.scala 195:7 196:29 198:29]
-  reg [5:0] count; // @[Top.scala 243:24]
-  wire [5:0] _count_T_1 = count + 6'h1; // @[Top.scala 244:20]
   SlowClock slowClock ( // @[Top.scala 144:25]
     .clk_original(slowClock_clk_original),
     .clk_new(slowClock_clk_new)
@@ -18943,67 +18938,4 @@ module Top(
   assign uart_reset = reset;
   assign uart_io_sendData_valid = 32'h10000000 == cpu_io_dData_addr & cpu_io_dData_writeEnable; // @[Top.scala 181:47 183:30 186:30]
   assign uart_io_sendData_bits = _GEN_4[7:0];
-  always @(posedge slowClock_clk_new) begin
-    if (reset) begin // @[Top.scala 243:24]
-      count <= 6'h0; // @[Top.scala 243:24]
-    end else begin
-      count <= _count_T_1; // @[Top.scala 244:11]
-    end
-    `ifndef SYNTHESIS
-    `ifdef PRINTF_COND
-      if (`PRINTF_COND) begin
-    `endif
-        if (~reset) begin
-          $fwrite(32'h80000002,"%d|    PC     : 0x%x\n",count,iData_io_inst); // @[Top.scala 245:11]
-        end
-    `ifdef PRINTF_COND
-      end
-    `endif
-    `endif // SYNTHESIS
-  end
-// Register and memory initialization
-`ifdef RANDOMIZE_GARBAGE_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_INVALID_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_REG_INIT
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-`define RANDOMIZE
-`endif
-`ifndef RANDOM
-`define RANDOM $random
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-  integer initvar;
-`endif
-`ifndef SYNTHESIS
-`ifdef FIRRTL_BEFORE_INITIAL
-`FIRRTL_BEFORE_INITIAL
-`endif
-initial begin
-  `ifdef RANDOMIZE
-    `ifdef INIT_RANDOM
-      `INIT_RANDOM
-    `endif
-    `ifndef VERILATOR
-      `ifdef RANDOMIZE_DELAY
-        #`RANDOMIZE_DELAY begin end
-      `else
-        #0.002 begin end
-      `endif
-    `endif
-`ifdef RANDOMIZE_REG_INIT
-  _RAND_0 = {1{`RANDOM}};
-  count = _RAND_0[5:0];
-`endif // RANDOMIZE_REG_INIT
-  `endif // RANDOMIZE
-end // initial
-`ifdef FIRRTL_AFTER_INITIAL
-`FIRRTL_AFTER_INITIAL
-`endif
-`endif // SYNTHESIS
 endmodule
