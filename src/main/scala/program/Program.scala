@@ -5,7 +5,7 @@ object Program {
   // Hello world --------------------------------------------------------
 
   // 命令
-  val iData_Program = List(0x00001417L, 0x00040413L, 0x00040503L, 0x00140413L,
+  val iData_Program = List(0x00000417L, 0x02c40413L, 0x00040503L, 0x00140413L,
     0x00050c63L, 0x008000efL, 0xff1ff06fL, 0x100002b7L, 0x00a28023L,
     0x00008067L, 0x0000006fL)
 
