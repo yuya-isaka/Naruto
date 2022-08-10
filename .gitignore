@@ -103,7 +103,7 @@ local.properties
 *.o
 *.ko
 *.obj
-*.elf
+# *.elf
 
 # Precompiled Headers
 *.gch
