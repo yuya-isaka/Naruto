@@ -41,13 +41,18 @@ Disassembly of section .text:
 8000007c:	01010413          	addi	s0,sp,16
 80000080:	00900513          	li	a0,9
 80000084:	f7dff0ef          	jal	ra,80000000 <fib>
-80000088:	0000006f          	j	80000088 <main+0x18>
+80000088:	00000793          	li	a5,0
+8000008c:	00078513          	mv	a0,a5
+80000090:	00c12083          	lw	ra,12(sp)
+80000094:	00812403          	lw	s0,8(sp)
+80000098:	01010113          	addi	sp,sp,16
+8000009c:	00008067          	ret
 
-8000008c <_start>:
-8000008c:	fe5ff0ef          	jal	ra,80000070 <main>
+800000a0 <_start>:
+800000a0:	fd1ff0ef          	jal	ra,80000070 <main>
 
-80000090 <fin>:
-80000090:	0000006f          	j	80000090 <fin>
+800000a4 <fin>:
+800000a4:	0000006f          	j	800000a4 <fin>
 
 Disassembly of section .comment:
 

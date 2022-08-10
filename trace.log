@@ -133,13 +133,13 @@
  pc    : 80000010
  reg0  : 0
  reg1  : 0
- reg2  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
  reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487744
+ reg8  : 0
  reg9  : 0
  reg10 : 0
  reg11 : 0
@@ -166,13 +166,13 @@
  pc    : 80000014
  reg0  : 0
  reg1  : 0
- reg2  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
  reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487744
+ reg8  : 0
  reg9  : 0
  reg10 : 0
  reg11 : 0
@@ -199,15 +199,15 @@
  pc    : 80000018
  reg0  : 0
  reg1  : 0
- reg2  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
  reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487744
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 0
  reg11 : 0
  reg12 : 0
  reg13 : 0
@@ -232,15 +232,15 @@
  pc    : 8000001c
  reg0  : 0
  reg1  : 0
- reg2  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
  reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 0
  reg11 : 0
  reg12 : 0
  reg13 : 0
@@ -265,81 +265,15 @@
  pc    : 80000020
  reg0  : 0
  reg1  : 0
- reg2  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
  reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 8000001c
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 0
- reg6  : 0
- reg7  : 0
- reg8  : 2147487745
- reg9  : 0
- reg10 : 72
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 80000020
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 0
- reg6  : 0
- reg7  : 0
- reg8  : 2147487745
- reg9  : 0
- reg10 : 72
+ reg10 : 0
  reg11 : 0
  reg12 : 0
  reg13 : 0
@@ -363,16 +297,16 @@
  reg31 : 0
  pc    : 80000024
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
  reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 0
  reg11 : 0
  reg12 : 0
  reg13 : 0
@@ -396,21 +330,417 @@
  reg31 : 0
  pc    : 80000028
  reg0  : 0
- reg1  : 2147483672
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 0
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 0
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 8000002c
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 0
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000030
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 0
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000034
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 0
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000058
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 0
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 8000005c
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 0
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000060
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 0
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000064
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 0
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000068
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 1
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 8000006c
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 1
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000070
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 1
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000074
+ reg0  : 0
+ reg1  : 0
+ reg2  : 4294967264
+ reg3  : 0
+ reg4  : 0
+ reg5  : 0
+ reg6  : 0
+ reg7  : 0
+ reg8  : 0
+ reg9  : 0
+ reg10 : 1
+ reg11 : 0
+ reg12 : 0
+ reg13 : 0
+ reg14 : 0
+ reg15 : 1
+ reg16 : 0
+ reg17 : 0
+ reg18 : 0
+ reg19 : 0
+ reg20 : 0
+ reg21 : 0
+ reg22 : 0
+ reg23 : 0
+ reg24 : 0
+ reg25 : 0
+ reg26 : 0
+ reg27 : 0
+ reg28 : 0
+ reg29 : 0
+ reg30 : 0
+ reg31 : 0
+ pc    : 80000078
+ reg0  : 0
+ reg1  : 0
  reg2  : 0
  reg3  : 0
  reg4  : 0
  reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -427,23 +757,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 8000002c
+ pc    : 0
  reg0  : 0
- reg1  : 2147483672
+ reg1  : 0
  reg2  : 0
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -460,23 +790,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000030
+ pc    : 4
  reg0  : 0
- reg1  : 2147483672
+ reg1  : 0
  reg2  : 0
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -493,23 +823,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000018
+ pc    : 8
  reg0  : 0
- reg1  : 2147483672
+ reg1  : 0
  reg2  : 0
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -526,23 +856,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 8000001c
+ pc    : c
  reg0  : 0
- reg1  : 2147483672
+ reg1  : 0
  reg2  : 0
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -559,23 +889,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000020
+ pc    : 10
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -592,23 +922,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000024
+ pc    : 14
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -625,23 +955,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000008
+ pc    : 18
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -658,23 +988,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 8000000c
+ pc    : 1c
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -691,23 +1021,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000010
+ pc    : 20
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -724,23 +1054,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000014
+ pc    : 24
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 72
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -757,23 +1087,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000018
+ pc    : 28
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487745
+ reg8  : 0
  reg9  : 0
- reg10 : 101
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -790,23 +1120,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 8000001c
+ pc    : 2c
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487746
+ reg8  : 0
  reg9  : 0
- reg10 : 101
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -823,23 +1153,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000020
+ pc    : 30
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487746
+ reg8  : 0
  reg9  : 0
- reg10 : 101
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -856,23 +1186,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 8000001c
+ pc    : 34
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487746
+ reg8  : 0
  reg9  : 0
- reg10 : 101
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -889,23 +1219,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000020
+ pc    : 58
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487746
+ reg8  : 0
  reg9  : 0
- reg10 : 101
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -922,23 +1252,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000024
+ pc    : 5c
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487746
+ reg8  : 0
  reg9  : 0
- reg10 : 101
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
@@ -955,353 +1285,23 @@
  reg29 : 0
  reg30 : 0
  reg31 : 0
- pc    : 80000028
+ pc    : 60
  reg0  : 0
- reg1  : 2147483672
- reg2  : 0
+ reg1  : 0
+ reg2  : 4294967264
  reg3  : 0
  reg4  : 0
- reg5  : 268435456
+ reg5  : 0
  reg6  : 0
  reg7  : 0
- reg8  : 2147487746
+ reg8  : 0
  reg9  : 0
- reg10 : 101
+ reg10 : 1
  reg11 : 0
  reg12 : 0
  reg13 : 0
  reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 8000002c
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 80000030
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 80000018
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 8000001c
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 80000020
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 80000024
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 80000008
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 8000000c
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 80000010
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
- reg16 : 0
- reg17 : 0
- reg18 : 0
- reg19 : 0
- reg20 : 0
- reg21 : 0
- reg22 : 0
- reg23 : 0
- reg24 : 0
- reg25 : 0
- reg26 : 0
- reg27 : 0
- reg28 : 0
- reg29 : 0
- reg30 : 0
- reg31 : 0
- pc    : 80000014
- reg0  : 0
- reg1  : 2147483672
- reg2  : 0
- reg3  : 0
- reg4  : 0
- reg5  : 268435456
- reg6  : 0
- reg7  : 0
- reg8  : 2147487746
- reg9  : 0
- reg10 : 101
- reg11 : 0
- reg12 : 0
- reg13 : 0
- reg14 : 0
- reg15 : 0
+ reg15 : 1
  reg16 : 0
  reg17 : 0
  reg18 : 0
