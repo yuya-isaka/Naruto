@@ -356,5 +356,5 @@ src/test/scala/test
 
 *.dump
 *.bin
-src/c/hello/hello
-src/c/hello/hello_c
+# src/c/hello/hello
+# src/c/hello/hello_c
