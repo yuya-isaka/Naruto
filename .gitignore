@@ -349,3 +349,7 @@ memo.txt
 chisel-memo.txt
 Top.anno.json
 Top.fir
+rtl
+
+src/main/scala/test
+src/test/scala/test

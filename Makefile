@@ -11,3 +11,7 @@ test:
 # 開発 & 本番 ----------------------------------------
 run:
 	sbt "runMain naruto.Naruto"
+
+# 個人用テスト
+testtest:
+	sbt "testOnly test.TestTop"
