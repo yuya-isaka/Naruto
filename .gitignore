@@ -353,3 +353,8 @@ rtl
 
 src/main/scala/test
 src/test/scala/test
+
+*.dump
+*.bin
+src/c/hello/hello
+src/c/hello/hello_c
