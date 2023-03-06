@@ -1,4 +1,8 @@
-# Current Status
+# naruto
+
+The simple 32-bit RISC-V core written in Chisel.
+
+## Current Status
 Running on Basys3 FPGA Evaluation Board
 
 ### Architecture
