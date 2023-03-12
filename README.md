@@ -1,4 +1,4 @@
-# naruto
+# Naruto
 
 The simple 32-bit RISC-V core written in Chisel.
 
