@@ -1,18 +1,18 @@
 # Naruto
 
-The simple 32-bit RISC-V core written in Chisel.
+Naruto is a simple 32-bit RISC-V core implemented in Chisel.
 
 ## Current Status
-Running on Basys3 FPGA Evaluation Board
 
-### Architecture
-* 5-stage pipelined operation (fetch, decode, execute, memory access, write back)
-* Instruction set: RV32I
-* Omit privileged instructions and interrupt area
+Currently running on the Basys3 FPGA Evaluation Board.
 
+## Architecture
 
-### References
+- **Pipelining**: 5-stage (fetch, decode, execute, memory access, write back)
+- **Instruction Set**: RV32I
+- **Privileges**: Excludes privileged instructions and interrupt handling
 
-* https://github.com/horie-t/homemade-riscv-en
+## References
 
-* https://github.com/chadyuu/riscv-chisel-book
+- [Homemade RISC-V](https://github.com/horie-t/homemade-riscv-en)
+- [RISC-V Chisel Book](https://github.com/chadyuu/riscv-chisel-book)
